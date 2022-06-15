@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="text-style container recipepage">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 recipe-info-card">
+            <div class="border-recipe">
+                <!-- Recipe name -->
+                <div class="recipe-card-info text-uppercase text-center pt-4">
+                    <h1>How to Make Our Favorite Red Sangria</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img class="recipe-detail-image mt-4 mb-5" src="static/images/recipe_2.jpg" alt="Pizza">
+                </div>
+                <div class="row col-12 text-center">
+                    <!-- Recipe author -->
+                    <p>Author: Admin</p>
+                    <!-- Recipe type -->
+                    <p>Course Type: Meal </p>
+                    <!-- Total recipe time -->
+                    <p><i class="fas fa-clock"></i> Time: 10</p>
+                    <!-- Number of servings per recipe -->
+                    <p><i class="fas fa-users"></i> Servings: 6 drinks</p>
+                </div>
+                <!-- Recipe ingredients -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase mt-3">Ingredients</h4>
+                    <ul>
+                        <li>1 bottle of dry red wine, see notes below for suggestions</li>
+                        <li>1/4 cup brandy</li>
+                        <li>2 medium oranges</li>
+                        <li>1 medium lemon</li>
+                        <li>3 to 5 tablespoons brown sugar or sweetener of choice</li>
+                        <li>1 1/2 cups sliced seasonal fruit (apple, pear, strawberries, peaches or a combination)</li>
+                        <li>1 cinnamon stick</li>
+                        <li>Sparkling water, chilled, optional</li>
+                    </ul>
+                </div>
+                <!-- Recipe directons -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase pr-5">Directions</h4>
+                    <ol>
+                        <li>Add wine and brandy to a tall pitcher.</li>
+                        <li>Juice one of the oranges and juice half of the lemon, and then add the juice to the pitcher.
+                            Save
+                            the second orange and remaining lemon half for later.</li>
+                        <li>Add 3 tablespoons of brown sugar and stir until it has completely dissolved into the wine,
+                            15 to 20
+                            seconds. Taste then adjust with more sweetener if needed. If using a liquid sweetener (like
+                            maple syrup),
+                            use a little less at first, taste and then add more as needed.</li>
+                        <li>Slice the remaining orange and lemon half and add to the pitcher along with the other fruit,
+                            and the
+                            cinnamon stick. Stir, cover, and chill for at least 30 minutes and up to a day in advance to
+                            give the
+                            fruit a chance to infuse the wine.</li>
+                        <li>Serve chilled (with or without ice). For a sparkling sangria, top with a splash of chilled
+                            sparkling
+                            water.</li>
+                    </ol>
+                </div>
+                <!-- Recipe notes -->
+                <div class="container recipe-card-info">
+                    <h3>Notes</h3>
+                    <p class="pb-5 notes">Red wine: For the best red sangria, we recommend a dry red wine, preferably
+                        from Spain.
+                        Look for tempranillo, garnacha (also know as grenache) or a label that has Rioja on it (Adam's
+                        favorite,
+                        because it usually has a touch more oak). You don't need to break the bank with the wine you
+                        choose — we
+                        personally choose something between $15 and $20.</p>
+                </div>
+                <hr>
+                <div class="text-center mb-5">
+                    <a href="{{ url_for('site_recipes')}}" class="btn btn-cream mb-3">
+                        See All Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
