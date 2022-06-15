@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="text-center container-fluid">
+  <!-- Hero image -->
+  <div id="hero-img">
+    <img class="hero-image d-none d-sm-block" src="static/images/hero-image.jpg" alt="Hero image">
+    <img class="hero-image d-block d-sm-none" src="static/images/hero-image-2.jpg" alt="Mobile hero image">
+    <div class="text-block">
+      <!-- Hero image banner -->
+      <h4>Welcome to FeedMe</h4>
+      <p>"No one is born a great cook, one learns by doing" - Julia Child</p>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row text-center">
+    <!-- Top recipes this week -->
+    <div>
+      <h2 class="text-styleheading font-weight-bold mt-5 mb-5">Top recipes this week</h2>
+    </div>
+    <div class="col-6 col-lg-3 card h-100 border-0">
+      <!-- Recipe 1 image -->
+      <a class="recipe-card" href="{{ url_for('recipe_1' )}}">
+        <img class="card-img-top img-fluid recipe-image mt-3" src="static/images/recipe_1.jpg" alt="Homemade pie">
+        <div class="hide centered text-uppercase p-3">See Recipe</div>
+      </a>
+      <!-- Recipe 1 name -->
+      <div class="card-body recipename text-center text-uppercase">
+        <h5>Seared Scallops with Garlic Basil Butter</h5>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3 card h-100 border-0">
+      <!-- Recipe 2 image -->
+      <a class="recipe-card" href="{{ url_for('recipe_2' )}}">
+        <img class="card-img-top img-fluid recipe-image mt-3" src="static/images/recipe_2.jpg" alt="Pizza">
+        <div class="hide centered text-uppercase p-3">See Recipe</div>
+      </a>
+      <!-- Recipe 2 name -->
+      <div class="card-body recipename text-center text-uppercase">
+        <h5>How to Make Our Favorite Red Sangria</h5>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3 card h-100 border-0">
+      <!-- Recipe 3 image -->
+      <a class="recipe-card" href="{{ url_for('recipe_3' )}}">
+        <img class="card-img-top img-fluid recipe-image mt-3" src="static/images/recipe_3.jpg" alt="Sandwich">
+        <div class="hide centered text-uppercase p-3">See Recipe</div>
+      </a>
+      <!-- Recipe 3 name -->
+      <div class="card-body recipename text-center text-uppercase">
+        <h5>Steamed Mussels with White Wine Broth</h5>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3 card h-100 border-0">
+      <!-- Recipe 4 image -->
+      <a class="recipe-card" href="{{ url_for('recipe_4' )}}">
+        <img class="card-img-top img-fluid recipe-image mt-3" src="static/images/recipe_4.jpg" alt="Beefy pasta">
+        <div class="hide centered text-uppercase p-3">See Recipe</div>
+      </a>
+      <!-- Recipe 4 name -->
+      <div class="card-body recipename text-center text-uppercase">
+        <h5>The Best Juicy Skillet Pork Chops</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="text-center container-fluid">
+  <div class="row">
+    <!-- Home banner -->
+    <div class="col-12 col-lg-6 home-banner mt-5">
+      <div class="mt-5">
+        <h1>Feeling hungry?</h1>
+        <p>Checkout some of our recipes below.</p>
+      </div>
+      <div>
+        <a href="{{ url_for('site_recipes' )}}" class="btn btn-black">
+          See All Recipes
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 d-none d-lg-block home-banner-image mt-5">
+      <a href="{{ url_for('site_recipes' )}}">
+        <img src="static/images/banner-image-1.jpg" alt="Home banner">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="text-center container mt-5">
+  <!-- Search by category buttons -->
+  <div class="row category">
+    <h2 class="text-styleheading mb-5">Search by category</h2>
+    <!-- Appetizer -->
+    <div class="col-6 col-md-4 col-lg-2 text-center">
+      <a href="{{ url_for('category_appetizer')}}">
+        <img src="static/images/appetizer.jpg" class="imagebuttons" alt="Appetizers">
+        <p class="mt-2 mb-4">Appetizer</p>
+      </a>
+    </div>
+    <!-- Meal -->
+    <div class="col-6 col-md-4 col-lg-2 text-center">
+      <a href="{{ url_for('category_meal' )}}">
+        <img src="static/images/meal.jpg" class="imagebuttons" alt="Meals">
+        <p class="mt-2 mb-4">Meal</p>
+      </a>
+    </div>
+    <!-- Side -->
+    <div class="col-6 col-md-4 col-lg-2 text-center">
+      <a href="{{ url_for('category_side' )}}">
+        <img src="static/images/side.jpg" class="imagebuttons" alt="Sides">
+        <p class="mt-2 mb-4">Side</p>
+      </a>
+    </div>
+    <!-- Breakfast -->
+    <div class="col-6 col-md-4 col-lg-2 text-center">
+      <a href="{{ url_for('category_breakfast' )}}">
+        <img src="static/images/breakfast.jpg" class="imagebuttons" alt="Breakfasts">
+        <p class="mt-2 mb-4">Breakfast</p>
+      </a>
+    </div>
+    <!-- Dessert -->
+    <div class="col-6 col-md-4 col-lg-2 text-center">
+      <a href="{{ url_for('category_dessert' )}}">
+        <img src="static/images/dessert.jpg" class="imagebuttons" alt="Desserts">
+        <p class="mt-2 mb-4">Dessert</p>
+      </a>
+    </div>
+    <!-- Drinks -->
+    <div class="col-6 col-md-4 col-lg-2 text-center">
+      <a href="{{ url_for('category_drinks' )}}">
+        <img src="static/images/drinks.jpg" class="imagebuttons" alt="Drinks">
+        <p class="mt-2 mb-4">Drinks</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ banner -->
+<section class="container col-12 col-md-8 offset-md-2 mt-5">
+  <div class="row home-banner text-center">
+      <div>
+      <h1>Got any questions?</h1>
+      <p>Checkout our FAQ page.</p>
+    </div>
+      <div>
+        <a href="{{ url_for('faq' )}}" class="btn btn-black mb-5">
+          See All FAQs
+        </a>
+      </div>
+  </div>
+
+</section>
+
+{% endblock %}
