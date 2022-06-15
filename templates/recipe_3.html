@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="text-style container recipepage">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 recipe-info-card">
+            <div class="border-recipe">
+                <!-- Recipe name -->
+                <div class="recipe-card-info text-uppercase text-center pt-4">
+                    <h1>Steamed Mussels with White Wine Broth</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img class="recipe-detail-image mt-4 mb-5" src="static/images/recipe_3.jpg" alt="Sandwich">
+                </div>
+                <div class="row col-12 text-center">
+                    <!-- Recipe author -->
+                    <p>Author: Admin</p>
+                    <!-- Recipe type -->
+                    <p>Course Type: Appetizer </p>
+                    <!-- Total recipe time -->
+                    <p><i class="fas fa-clock"></i> Time: 40</p>
+                    <!-- Number of servings per recipe -->
+                    <p><i class="fas fa-users"></i> Servings: 2</p>
+                </div>
+                <!-- Recipe ingredients -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase mt-3">Ingredients</h4>
+                    <ul>
+                        <li>2 pounds mussels, cleaned</li>
+                        <li>1 tablespoon butter</li>
+                        <li>2 small shallots, thinly sliced</li>
+                        <li>2 garlic cloves, finely chopped</li>
+                        <li>1 cup (236 ml) low-sodium chicken stock</li>
+                        <li>1/2 cup (118 ml) dry white wine</li>
+                        <li>Splash heavy cream</li>
+                        <li>1/4 cup roughly chopped fresh parsley</li>
+                        <li>Salt and fresh ground black pepper</li>
+                        <li>Lemon wedges, for serving</li>
+                        <li>1 baguette, warmed for serving</li>
+                    </ul>
+                </div>
+                <!-- Recipe directons -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase pr-5">Directions</h4>
+                    <ol>
+                        <li>Melt butter in a large pot with a lid over medium heat. When the butter begins to bubble,
+                            stir in the
+                            shallot and garlic. Cook until softened, about 5 minutes.</li>
+                        <li>Add the chicken stock, white wine, and mussels then give them a good toss. Cover the pot
+                            with its lid
+                            and cook until all the mussels have opened; 6 to 10 minutes. If any mussels do not open,
+                            discard them.
+                        </li>
+                        <li>Remove the pot from the heat, then stir in the cream and parsley. Taste the broth, and then
+                            adjust to
+                            taste with salt, pepper, or more cream.</li>
+                        <li>Serve in big bowls with lemon wedges and plenty of warmed bread to sop up the broth.</li>
+                    </ol>
+                </div>
+                <!-- Recipe notes -->
+                <div class="container recipe-card-info">
+                    <h3>Notes</h3>
+                    <p class="pb-5 notes">How to Clean Mussels: Look through the mussels. If you find any cracked,
+                        chipped, or open
+                        mussels, discard them. Most mussels will have a “beard,”which is just the fibers that emerge
+                        from the mussel
+                        shell. It’s best to remove this. To remove it, hold a mussel in one hand using a dry towel.
+                        Then, pull the beard
+                        out and away from the mussel with your other hand. Sometimes it can be a bit tricky to remove,
+                        but will eventually
+                        come out. Finally, use a firm brush to remove extra sand and the odd barnacle. Rinse the cleaned
+                        mussels under
+                        cold water, and then move on to cooking them.</p>
+                </div>
+                <hr>
+                <div class="text-center mb-5">
+                    <a href="{{ url_for('site_recipes')}}" class="btn btn-cream mb-3">
+                        See All Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
