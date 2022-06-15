@@ -306,3 +306,88 @@ footer a:hover {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
+
+/* -------------------------------- FeedMe recipe page */
+.search-bar input {
+    height: 40px;
+     width: 60%;
+}
+
+.no-results {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/* -------------------------------- My Recipe page */
+.card {
+    background-color: #fcf7f2;
+}
+
+.recipeimage {
+    width: 400px;
+    height: 270px;
+    border-radius: 5px;
+}
+
+.recipe-detail-image {
+    width: 400px;
+    height: 270px;
+    border-radius: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+.recipe-image:hover {
+    opacity: 0.4;
+}
+     
+.recipeimage:hover {
+    opacity: 0.4;
+}
+
+.recipe-image:hover + .hide {
+    display: inline-block;
+}
+
+.recipeimage:hover + .hide {
+    display: inline-block;
+}
+
+.recipe-card {
+    position: relative;
+    text-align: center;
+}
+
+.recipe-card div {
+    color: black;
+    border: 1px solid black;
+    font-weight: 800;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.recipename {
+    padding-top: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.recipe-card-info {
+    padding-left: 30px;
+    padding-top: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.recipe-card-info h1 {
+    text-align: center;
+}
+
+.recipe-card-info li {
+    padding-top: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
