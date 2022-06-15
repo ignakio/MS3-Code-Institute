@@ -391,3 +391,50 @@ footer a:hover {
     padding-top: 10px;
     font-family: 'Open Sans', sans-serif;
 }
+
+/* -------------------------------- Full Recipe page */
+.recipepage {
+    padding-top: 50px;
+}
+
+.recipe-image {
+    width: 400px;
+    height: 270px;
+    border-radius: 5px;
+}
+
+.border-recipe {
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
+    margin-right: 40px;
+    background-color: white;
+}
+
+.recipestuff {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.directions {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.directions h3 {
+    font-family: 'Love ya like a sister', sans-serif;
+}
+
+.notes {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.notes h3 {
+    font-family: 'Love ya like a sister', sans-serif;
+}
+
+/* -------------------------------- FAQ page */
+
+.faq {
+    font-family: 'Playfair Display', serif;
+}
+
