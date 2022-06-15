@@ -48,3 +48,44 @@ body {
     color: black;
   }
   
+  /* -------------------------------- Navbar */
+.nav {
+    background: #bcd4de;
+    height: 140px;
+    width: 100%;
+}
+
+.navbar-brand {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
+} 
+
+.navbar-nav { 
+    margin-left: auto;  
+    padding-top: 45px; 
+} 
+
+.navbar-brand h1 {
+   padding-top: 35px;
+   padding-left: 30px;  
+}
+
+nav li {
+    display: inline-block;
+    height: 100%;
+    padding-right: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.custom-toggler.navbar-toggler { 
+    border-color: transparent; 
+    box-shadow: none;
+    padding-top: 40px;
+    padding-right: 30px;
+} 
+        
+.custom-toggler .navbar-toggler-icon { 
+    background-image: url( 
+ "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+} 
