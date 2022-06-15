@@ -248,3 +248,61 @@ footer a:hover {
     padding-top:50px;
     padding-bottom: 100px;
 }
+
+/* -------------------------------- Login / Register page */
+.myform {
+    margin-top: 100px;
+    margin-bottom: 60px;
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 1.1rem;
+	outline: 0;
+    max-width: 1000px;
+}
+
+.form-group{
+    margin: 5px;
+}
+
+.mybtn {
+    margin-top: 20px;
+}
+  
+.tx-tfm{
+    text-transform:uppercase;
+}
+                 
+.login-or {
+    position: relative;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+}
+         
+.hr-or {
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
