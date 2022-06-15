@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="text-style container recipepage">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 recipe-info-card">
+            <div class="border-recipe">
+                <!-- Recipe name -->
+                <div class="recipe-card-info text-uppercase text-center pt-4">
+                    <h1>The Best Juicy Skillet Pork Chops</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img class="recipe-detail-image mt-4 mb-5" src="static/images/recipe_4.jpg" alt="Beefy pasta">
+                </div>
+                <div class="row col-12 text-center">
+                    <!-- Recipe author -->
+                    <p>Author: Admin</p>
+                    <!-- Recipe type -->
+                    <p>Course Type: Meal </p>
+                    <!-- Total recipe time -->
+                    <p><i class="fas fa-clock"></i> Time: 45</p>
+                    <!-- Number of servings per recipe -->
+                    <p><i class="fas fa-users"></i> Servings: 4</p>
+                </div>
+                <!-- Recipe ingredients -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase mt-3">Ingredients</h4>
+                    <ul>
+                        <li>4 pork chops, about 1-inch thick and 6 to 7 ounces each, see notes</li>
+                        <li>Salt, to taste</li>
+                        <li>1 tablespoon all-purpose flour</li>
+                        <li>1 teaspoon chili powder</li>
+                        <li>1 teaspoon garlic powder</li>
+                        <li>1 teaspoon onion powder</li>
+                        <li>1/2 teaspoon smoked paprika</li>
+                        <li>1/2 teaspoon ground black pepper</li>
+                        <li>1 tablespoon olive oil</li>
+                        <li>1 cup low-sodium chicken stock</li>
+                        <li>1 tablespoon apple cider vinegar</li>
+                        <li>2 teaspoons honey or brown sugar</li>
+                        <li>1 tablespoon butter</li>
+                    </ul>
+                </div>
+                <!-- Recipe directons -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase pr-5">Directions</h4>
+                    <ol>
+                        <li>Take the pork chops out of the refrigerator and season on both sides with salt and pepper —
+                            we use just
+                            less than 1/4 teaspoon of fine salt per pork chop. Set the chops aside to rest for 30
+                            minutes.</li>
+                        <li>Meanwhile, make the spice rub. In a small bowl, mix the flour, chili powder, garlic powder,
+                            onion powder,
+                            and smoked paprika. After 30 minutes, use a paper towel to pat the pork chops dry then rub
+                            both sides of
+                            the chops with the spice rub.</li>
+                        <li>Heat the oil in a medium skillet (with lid) over medium-high heat. As soon as the oil is hot
+                            and looks
+                            shimmery, add the pork. Cook until golden, 2 to 3 minutes.</li>
+                        <li>Flip the pork so that the seared side is facing up. (If there is a fattier side of the pork,
+                            use kitchen
+                            tongs to hold the chops, fat-side-down until it sizzles and browns slightly; about 30
+                            seconds.) Reduce the
+                            heat to low then cover the skillet with a lid. Cook 6 to 12 minutes or until an instant-read
+                            thermometer
+                            reads 145 degrees F when inserted into the thickest part of the chop. (Since cook time
+                            depends on the
+                            thickness of the chops, check for doneness at 5 minutes then go from there, checking every 2
+                            minutes). If
+                            you do not have a thermometer, you will know they are done, if when cutting into the chops,
+                            the juices run
+                            clear.</li>
+                        <li>Transfer pork chops to a plate then cover loosely with aluminum foil. Let the pork rest for
+                            5 minutes.</li>
+                    </ol>
+                </div>
+                <div class="container recipe-card-info">
+                    <h3>Notes</h3>
+                    <p class="pb-5 notes">While the pork rests, make the pan sauce. Increase the heat to medium-high
+                        then add the
+                        chicken stock, vinegar, and honey. Use a wooden spoon to scrape the bottom of the pan so that
+                        any stuck bits
+                        of pork come up. Bring to a simmer and cook until reduced by half. Taste then adjust the
+                        seasoning with salt,
+                        more vinegar or honey. Slide the skillet off of the heat and when the sauce is no longer
+                        simmering, swirl in
+                        the butter. Slide the pork chops back into the pan and spoon some of the sauce on top.
+                        Alternatively, slice
+                        the chops then place back into the pan.</p>
+                </div>
+                <hr>
+                <!-- Recipe notes -->
+                <div class="text-center mb-5">
+                    <a href="{{ url_for('site_recipes')}}" class="btn btn-cream mb-3">
+                        See All Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
