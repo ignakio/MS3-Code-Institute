@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="text-style container recipepage">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 recipe-info-card">
+            <div class="border-recipe">
+                <!-- Recipe name -->
+                <div class="recipe-card-info text-uppercase text-center pt-4">
+                    <h1>Seared Scallops with Garlic Basil Butter</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img class="recipe-detail-image mt-4 mb-5" src="static/images/recipe_1.jpg" alt="Homemade pie">
+                </div>
+                <div class="row col-12 text-center">
+                    <!-- Recipe author -->
+                    <p>Author: Admin</p>
+                    <!-- Recipe type -->
+                    <p>Course Type: Meal </p>
+                    <!-- Total recipe time -->
+                    <p><i class="fas fa-clock"></i> Time: 10</p>
+                    <!-- Number of servings per recipe -->
+                    <p><i class="fas fa-users"></i> Servings: 4</p>
+                </div>
+                <!-- Recipe ingredients -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase mt-3">Ingredients</h4>
+                    <ul>
+                        <li>12 large sea scallops, 1 1/4 to 1 1/2 pounds</li>
+                        <li>2 teaspoons all-purpose flour, optional, see notes</li>
+                        <li>Salt and fresh ground black pepper</li>
+                        <li>2 tablespoons oil, such as olive oil, avocado oil or grape seed oil</li>
+                        <li>1 1/2 tablespoons butter</li>
+                        <li>2 garlic cloves, minced</li>
+                        <li>1 cup fresh basil leaves</li>
+                        <li>3 to 4 lemon slices</li>
+                    </ul>
+                </div>
+                <!-- Recipe directons -->
+                <div class="container recipe-card-info">
+                    <h4 class="text-uppercase pr-5">Directions</h4>
+                    <ol>
+                        <li>se a paper towel to pat the scallops dry. Dust one side of the scallops with a small amount
+                            of
+                            flour, and then season with salt and pepper.</li>
+                        <li>Heat a wide skillet over medium-high heat. Add the oil to the pan. When the oil is hot and
+                            shimmery,
+                            carefully place the scallops, seasoned-side-down, into the pan. Cook, without moving them
+                            until
+                            browned, about 2 minutes.</li>
+                        <li>While the first side is browning, dust the unseasoned side of the scallops with a bit of
+                            flour and
+                            season them with salt and pepper.</li>
+                        <li>Flip the scallops — if any stick to the pan, wait a few more seconds then try again, gently
+                            wiggling
+                            them side to side to help release them.</li>
+                        <li>Add the butter and garlic to the pan, and then swirl the butter around the pan as it melts.
+                            Cook
+                            another minute or two then take the pan off of the heat. Stir in the basil leaves and lemon
+                            slices.
+                            Serve.</li>
+                    </ol>
+                </div>
+                <div class="container recipe-card-info">
+                    <h3>Notes</h3>
+                    <!-- Recipe notes -->
+                    <p class="pb-5 notes">Do I need to use flour: If you don’t want to use the flour, it’s okay. It
+                        helps with even
+                        browning, and since some of the flour sticks to the bottom of the pan, it mixes with the butter,
+                        helping
+                        to thicken the garlic basil butter sauce. If you are gluten-free or don’t want to get out the
+                        flour, make
+                        sure the scallops are as dry as you can get them for the best chance at a good sear.</p>
+                </div>
+                <hr>
+                <div class="text-center mb-5">
+                    <a href="{{ url_for('site_recipes')}}" class="btn btn-cream mb-3">
+                        See All Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
