@@ -361,3 +361,149 @@ In order to set up a database in MongoDB:
  
 - See seperate [TESTING.md](TESTING.md) file. 
 
+# Deployment
+
+## How to run this project locally
+
+To run this project on your own IDE follow the instructions below:
+
+Ensure you have the following tools: 
+    - An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
+
+The following **must be installed** on your machine:
+    - [PIP](https://pip.pypa.io/en/stable/installing/)
+    - [Python 3](https://www.python.org/downloads/)
+    - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+
+### Instructions
+1. Save a copy of the github repository located at https://github.com/ignakio/MS3-Code-Institute by clicking the "download zip" button at 
+   the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the 
+   repository with the following command.
+    ```
+    git clone https://github.com/ignakio/MS3-Code-Institute
+    ```
+
+2. Open your preferred IDE, open a terminal session in the unzip folder or cd to the correct location.
+
+3. A virtual environment is recommended for the Python interpreter, I recommend using Pythons built in virtual environment. Enter the command:
+    ```
+    python -m .venv venv
+    ```  
+_NOTE: The `python` part of this command and the ones in other steps below assumes you are working with a windows operating system. 
+Your Python command may differ, such as `python3` or `py`_
+
+4. Activate the .venv with the command:
+    ```
+    .venv\Scripts\activate 
+    ```
+_Again this **command may differ depending on your operating system**, please check the [Python Documentation on virtual environments](
+    https://docs.python.org/3/library/venv.html) for further instructions._
+
+5. If needed, Upgrade pip locally with
+    ```
+    pip install --upgrade pip.
+    ```
+
+6. Install all required modules with the command 
+    ```
+    pip -r requirements.txt.
+    ```
+
+7. Set up the following environment variables within your IDE. 
+
+    - If using VSCode, locate the `settings.json` file within the .vscode directory and add your environment variables as below. 
+      Do not forget to restart your machine to activate your environment variables or your code will not be able to see them: 
+
+    ```json
+    "terminal.integrated.env.windows": {
+        "HOSTNAME": "<enter hostname here>",
+        "DEV": "1",
+        "IP": "<your IP>",
+        "MONGO_DBNAME": "<your database name on MongoDB>",
+        "MONGO_URI": "<your URI to your MongoDB database>",
+        "PORT": "<your port>",
+        "SECRET_KEY": "<your secret key>" 
+    }
+    ```
+
+    - If using an IDE that includes a `bashrc` file, open this file and enter all the environment variables listed above using the 
+      following format: 
+    ```
+    HOSTNAME="<enter key here>"
+    ```
+    - `HOSTNAME` should be the local address for the site when running within your own IDE.
+    - `DEV` environment variable is set only within the development environment, it does not exist in the deployed version, making it 
+      possible to have different settings for the two environments. For example setting DEBUG to True only when working in development 
+      and not on the deployed site.
+
+8. If you have restarted your machine to activate your environment variables, do not forget to reactivate your virtual environment with 
+   the command used at step 4.
+
+9. You can now run the program locally with the following command: 
+    ```
+    python3 app.py
+    ```
+
+## Heroku Deployment
+
+To deploy the FeedMe website to heroku, take the following steps:
+
+1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
+
+2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
+
+3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+
+4. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. 
+   Give it a name and set the region to whichever is applicable for your location.
+
+5. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+
+6. Confirm the linking of the heroku app to the correct GitHub repository.
+
+7. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+8. Set the following config vars:
+
+| Key | Value |
+--- | ---
+IP | `<your IP>`
+MONGO_DBNAME | `<your database name on MongoDB>`
+MONGO_URI | `<your URI to your MongoDB database>`
+PORT | `<your port>`
+SECRET_KEY | `<your secret key>`
+
+9. In your heroku dashboard, click "Deploy". Scroll down to "Manual Deploy", select the master branch then click "Deploy Branch".
+
+10. Once the build is complete, click the "View app" button provided.
+
+12. Your heroku site should run as expected.
+
+# Credits
+
+## Content
+- Recipe content was taken from [inspired taste](https://www.inspiredtaste.net/). 
+
+## Images
+- The hero image was taken from [Shutterstock](https://www.shutterstock.com/home). 
+- The recipe images were taken from [inspired taste](https://www.inspiredtaste.net/). 
+- The mockup image in the README.md file was created using [Techsini](https://techsini.com/).
+
+## Code
+
+- The following websites helped me understand and create my website, by viewing examples and explanatons.
+    - [W3schools](https://www.w3schools.com/)
+    - [Bootsnipp](https://bootsnipp.com/)
+    - [Code Institute](https://codeinstitute.net/)
+    - [Stack Overflow](https://stackoverflow.com/)
+
+- The following website provided inspiration for my website.
+    - [Tasty](https://tasty.co/)
+    - [Pick Up Limes](https://www.pickuplimes.com/)
+
+- The 404 template was taken from [colorlib](https://colorlib.com/). 
+
+
+## Acknowledgements
+
+ - Code Institute tutors for helping support and guide me in the right direction with my code.
