@@ -53,7 +53,7 @@ def search():
     recipes = list(recipes_collection.find({"$text": {"$search": query}}))
     return render_template("site_recipes.html", recipes=recipes)
 
-
+    
 # Appetizer category
 @app.route("/category_appetizer")
 def category_appetizer():
@@ -291,7 +291,7 @@ def delete_recipe(recipe_id):
             session['user'] != 'admin')):
         return render_template('404.html')
 
-    recipes_collection.remove({"_id": ObjectId(recipe_id)})
+    recipes_collection.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Removed")
     return redirect(url_for("get_recipes"))
 
