@@ -187,7 +187,7 @@ def add_recipe():
     # Only logged iin users can access this page
     if 'user' not in session:
         flash("Sorry, you are unable to access this page")
-        return render_template('index.html') 
+        return render_template('index.html')
 
     if request.method == "POST":
         recipe = {
