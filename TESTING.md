@@ -151,7 +151,7 @@ All steps on desktop were repeated in browsers: Firefox, Chrome and Safari.
 - Log out then go to the register page. Confirm that the register form is displayed as expected.
 - Fill in the form with a username already in the database, confirm that the user is informed that the username already exists. 
 - Fill in the registration form correctly, confirm that the user is automatically directed to the My Recipes page, and the message 
-  "Weclome `<username>`." is displayed above. 
+  "Welcome `<username>`." is displayed above. 
 
 #### FeedMe Recipes
 
