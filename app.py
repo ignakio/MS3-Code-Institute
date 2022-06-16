@@ -33,7 +33,6 @@ def get_recipes():
     if 'user' not in session:
         flash("Sorry, you are unable to access this page")
         return render_template('index.html')
-        
     recipes = list(mongo.db.recipes.find({"created_by": session["user"]}))
     return render_template("your_recipes.html", recipes=recipes)
 
@@ -71,7 +70,7 @@ def category_drinks():
 @app.route("/category_side")
 def category_side():
     recipes = list(mongo.db.recipes.find({"category_name": "Side"}))
-    return render_template("site_recipes.html", recipes=recipes) 
+    return render_template("site_recipes.html", recipes=recipes)
 
 
 # Breakfast category
