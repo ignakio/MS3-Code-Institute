@@ -22,7 +22,6 @@ mongo = PyMongo(app)
 
 client = pymongo.MongoClient(os.environ.get("MONGO_URI"))
 db = client[os.environ.get("MONGO_DBNAME")]
-print(client.list_database_names())
 
 recipes_collection = db["recipes"]
 categories_collection = db["categories"]
