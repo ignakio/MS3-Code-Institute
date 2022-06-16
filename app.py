@@ -1,4 +1,6 @@
 import os
+import pymongo
+
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -18,6 +20,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+client = pymongo.MongoClient(os.environ.get("MONGO_URI"))
+db = client[os.environ.get("MONGO_DBNAME")]
+print(client.list_database_names())
+
+recipes_collection = db["recipes"]
+categories_collection = db["categories"]
+users_collection = db["users"]
+
 # Home
 @app.route("/")
 @app.route("/home")
@@ -33,7 +43,7 @@ def get_recipes():
     if 'user' not in session:
         flash("Sorry, you are unable to access this page")
         return render_template('index.html')
-    recipes = list(mongo.db.recipes.find({"created_by": session["user"]}))
+    recipes = list(recipes_collection.find({"created_by": session["user"]}))
     return render_template("your_recipes.html", recipes=recipes)
 
 
@@ -41,56 +51,57 @@ def get_recipes():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    recipes = list(recipes_collection.find({"$text": {"$search": query}}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # Appetizer category
 @app.route("/category_appetizer")
 def category_appetizer():
-    recipes = list(mongo.db.recipes.find({"category_name": "Appetizer"}))
+    recipes = list(recipes_collection.find({"category_name": "Appetizer"}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # Meal category
 @app.route("/category_meal")
 def category_meal():
-    recipes = list(mongo.db.recipes.find({"category_name": "Meal"}))
+    recipes = list(recipes_collection.find({"category_name": "Meal"}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # Drinks category
 @app.route("/category_drinks")
 def category_drinks():
-    recipes = list(mongo.db.recipes.find({"category_name": "Drinks"}))
+    recipes = list(recipes_collection.find({"category_name": "Drinks"}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # Side category
 @app.route("/category_side")
 def category_side():
-    recipes = list(mongo.db.recipes.find({"category_name": "Side"}))
+    recipes = list(recipes_collection.find({"category_name": "Side"}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # Breakfast category
 @app.route("/category_breakfast")
 def category_breakfast():
-    recipes = list(mongo.db.recipes.find({"category_name": "Breakfast"}))
+    recipes = list(recipes_collection.find({"category_name": "Breakfast"}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # Dessert category
 @app.route("/category_dessert")
 def category_dessert():
-    recipes = list(mongo.db.recipes.find({"category_name": "Dessert"}))
+    recipes = list(recipes_collection.find({"category_name": "Dessert"}))
     return render_template("site_recipes.html", recipes=recipes)
 
 
 # FeedMe recipes
 @app.route("/site_recipes")
 def site_recipes():
-    recipes = list(mongo.db.recipes.find())
+    data = recipes_collection.find()
+    recipes = [] if data is None else list(data)
     return render_template("site_recipes.html", recipes=recipes)
 
 
@@ -104,7 +115,7 @@ def register():
         return render_template('index.html')
 
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
+        existing_user = users_collection.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
@@ -115,7 +126,7 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        users_collection.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
         flash("We are so excited to have you here!")
@@ -133,7 +144,7 @@ def login():
         return render_template('index.html')
         
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
+        existing_user = users_collection.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
@@ -207,11 +218,11 @@ def add_recipe():
             "direction_9": request.form.get("direction_9"),
             "notes": request.form.get("notes"),
         }
-        mongo.db.recipes.insert_one(recipe)
+        recipes_collection.insert_one(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    categories = categories_collection.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
 
@@ -219,7 +230,7 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = recipes_collection.find_one({"_id": ObjectId(recipe_id)})
 
     # If the user is not the owner of this recipe or the admin, they will 
     # receive this error
@@ -260,10 +271,10 @@ def edit_recipe(recipe_id):
             "direction_9": request.form.get("direction_9"),
             "notes": request.form.get("notes")
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        recipes_collection.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Successfully Edited")
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    categories = categories_collection.find().sort("category_name", 1)
     return render_template(
         "edit_recipe.html", recipe=recipe, categories=categories)
 
@@ -272,7 +283,7 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = recipes_collection.find_one({"_id": ObjectId(recipe_id)})
     # If the user is not the owner of this recipe or the admin, they will 
     # receive this error
     if 'user' not in session or (
@@ -281,7 +292,7 @@ def delete_recipe(recipe_id):
             session['user'] != 'admin')):
         return render_template('404.html')
 
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    recipes_collection.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Removed")
     return redirect(url_for("get_recipes"))
 
@@ -289,7 +300,7 @@ def delete_recipe(recipe_id):
 # Full recipe page
 @app.route("/view_recipe/<recipe_id>", methods=["GET"])
 def view_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = recipes_collection.find_one({"_id": ObjectId(recipe_id)})
     if 'user' not in session or (
          recipe and (
             recipe['created_by'] != session['user'] and
@@ -301,7 +312,7 @@ def view_recipe(recipe_id):
 # Full FeedMe recipe page
 @app.route("/feedme_recipe/<recipe_id>", methods=["GET"])
 def feedme_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = recipes_collection.find_one({"_id": ObjectId(recipe_id)})
     return render_template("feedme_recipe.html", recipe=recipe)
 
 
